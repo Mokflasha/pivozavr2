@@ -1223,9 +1223,15 @@ const _oyACx5 = lazyEventHandler(() => {
   return useBase(opts.baseURL, ipxHandler);
 });
 
+const _lazy_oYflHq = () => Promise.resolve().then(function () { return login$1; });
+const _lazy_zN4rVn = () => Promise.resolve().then(function () { return test$1; });
+const _lazy_JBaqJ1 = () => Promise.resolve().then(function () { return profile$1; });
 const _lazy_vDCVUR = () => Promise.resolve().then(function () { return renderer$1; });
 
 const handlers = [
+  { route: '/api/login', handler: _lazy_oYflHq, lazy: true, middleware: false, method: undefined },
+  { route: '/api/test', handler: _lazy_zN4rVn, lazy: true, middleware: false, method: undefined },
+  { route: '/api/user/:id/profile', handler: _lazy_JBaqJ1, lazy: true, middleware: false, method: undefined },
   { route: '/__nuxt_error', handler: _lazy_vDCVUR, lazy: true, middleware: false, method: undefined },
   { route: '/_ipx/**', handler: _oyACx5, lazy: false, middleware: false, method: undefined },
   { route: '/**', handler: _lazy_vDCVUR, lazy: true, middleware: false, method: undefined }
@@ -1462,6 +1468,111 @@ const template$1 = (messages) => {
 const errorDev = /*#__PURE__*/Object.freeze({
   __proto__: null,
   template: template$1
+});
+
+const fakeUsers$1 = {
+  "PivoLover42": {
+    nickname: "PivoLover42",
+    password: "12345678"
+  },
+  "PivoLover43": {
+    nickname: "PivoLover43",
+    password: "12345678"
+  }
+};
+const login = defineEventHandler(async (event) => {
+  const body = await readBody(event);
+  const { nickname, password } = body;
+  const user = fakeUsers$1[nickname];
+  if (!user) {
+    return { success: false, error: "\u041F\u043E\u043B\u044C\u0437\u043E\u0432\u0430\u0442\u0435\u043B\u044C \u043D\u0435 \u043D\u0430\u0439\u0434\u0435\u043D" };
+  }
+  if (user.password !== password) {
+    return { success: false, error: "\u041D\u0435\u0432\u0435\u0440\u043D\u044B\u0439 \u043F\u0430\u0440\u043E\u043B\u044C" };
+  }
+  return { success: true, id: user.nickname };
+});
+
+const login$1 = /*#__PURE__*/Object.freeze({
+  __proto__: null,
+  default: login
+});
+
+const test = defineEventHandler(() => {
+  console.log("test API");
+  return { message: "API \u0440\u0430\u0431\u043E\u0442\u0430\u0435\u0442" };
+});
+
+const test$1 = /*#__PURE__*/Object.freeze({
+  __proto__: null,
+  default: test
+});
+
+const fakeUsers = {
+  "PivoLover42": {
+    nickname: "PivoLover42",
+    avatar: "/avatar.png",
+    level: 24,
+    icon: "/pivo.png",
+    beers: [
+      { id: 1, name: "\u0418\u041F\u0410", favorite: true, review: "\u0442\u043E\u043F \u043F\u0438\u0432\u0430\u0441", rating: 5 },
+      { id: 2, name: "\u041B\u0430\u0433\u0435\u0440", favorite: false, review: "", rating: 0 },
+      { id: 3, name: "\u0421\u0442\u0430\u0443\u0442", favorite: true, review: "\u043D\u0435 \u043E\u0447 \u0442\u043E\u043F \u043F\u0438\u0432\u0430\u0441", rating: 4 }
+    ],
+    achievements: [
+      {
+        id: 1,
+        title: "\u0410\u043B\u043A\u0430\u0448",
+        description: "\u041F\u043E\u043F\u0440\u043E\u0431\u043E\u0432\u0430\u043B 50 \u0441\u043E\u0440\u0442\u043E\u0432",
+        image: "/6351681377.jpg",
+        unlocked: true
+      },
+      {
+        id: 2,
+        title: "\u0410\u043B\u043A\u0430\u0448 \u043F\u0440\u043E",
+        description: "\u041E\u0446\u0435\u043D\u0438\u043B 100 \u0440\u0430\u0437\u043D\u044B\u0445 \u043F\u0438\u0432\u043E\u0432",
+        image: "/6351681377.jpg",
+        unlocked: false
+      }
+    ]
+  },
+  "PivoLover43": {
+    nickname: "PivoLover43",
+    avatar: "/avatar2.webp",
+    level: 24,
+    icon: "/pivo.png",
+    beers: [
+      { id: 1, name: "\u0418\u041F\u0410", favorite: true, review: "\u0442\u043E\u043F \u043F\u0438\u0432\u0430\u0441", rating: 5 },
+      { id: 2, name: "\u041B\u0430\u0433\u0435\u0440", favorite: false, review: "", rating: 0 }
+    ],
+    achievements: [
+      {
+        id: 1,
+        title: "\u0421\u043E\u043C\u0435\u043B\u044C\u0435",
+        description: "\u041F\u043E\u043F\u0440\u043E\u0431\u043E\u0432\u0430\u043B 50 \u0441\u043E\u0440\u0442\u043E\u0432",
+        image: "/6351681377.jpg",
+        unlocked: true
+      },
+      {
+        id: 2,
+        title: "\u0410\u043B\u043A\u0430\u0448 \u043F\u0440\u043E",
+        description: "\u041E\u0446\u0435\u043D\u0438\u043B 100 \u0440\u0430\u0437\u043D\u044B\u0445 \u043F\u0438\u0432\u043E\u0432",
+        image: "/6351681377.jpg",
+        unlocked: true
+      }
+    ]
+  }
+};
+const profile = defineEventHandler((event) => {
+  var _a;
+  const id = (_a = event.context.params) == null ? void 0 : _a.id;
+  console.log("api profile called for:", id);
+  return fakeUsers[id] || { beers: [], achievements: [] };
+});
+
+const profile$1 = /*#__PURE__*/Object.freeze({
+  __proto__: null,
+  default: profile
 });
 
 const VueResolver = (_, value) => {

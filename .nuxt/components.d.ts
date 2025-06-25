@@ -13,6 +13,7 @@ type HydrationStrategies = {
 type LazyComponent<T> = (T & DefineComponent<HydrationStrategies, {}, {}, {}, {}, {}, {}, { hydrated: () => void }>)
 interface _GlobalComponents {
       'BaseNavigation': typeof import("../components/BaseNavigation.vue")['default']
+    'BeerCard': typeof import("../components/BeerCard.vue")['default']
     'LoginForm': typeof import("../components/LoginForm.vue")['default']
     'LoginNavigation': typeof import("../components/LoginNavigation.vue")['default']
     'MostPopular': typeof import("../components/MostPopular.vue")['default']
@@ -29,6 +30,9 @@ interface _GlobalComponents {
     'NuxtRouteAnnouncer': typeof import("../node_modules/nuxt/dist/app/components/nuxt-route-announcer")['default']
     'NuxtImg': typeof import("../node_modules/@nuxt/image/dist/runtime/components/NuxtImg.vue")['default']
     'NuxtPicture': typeof import("../node_modules/@nuxt/image/dist/runtime/components/NuxtPicture.vue")['default']
+    'Label': typeof import("../components/ui/label/index")['Label']
+    'Button': typeof import("../components/ui/button/index")['Button']
+    'Input': typeof import("../components/ui/input/index")['Input']
     'FormControl': typeof import("../components/ui/form/index")['FormControl']
     'FormDescription': typeof import("../components/ui/form/index")['FormDescription']
     'FormItem': typeof import("../components/ui/form/index")['FormItem']
@@ -38,9 +42,6 @@ interface _GlobalComponents {
     'Form': typeof import("../components/ui/form/index")['Form']
     'FormField': typeof import("../components/ui/form/index")['FormField']
     'FormFieldArray': typeof import("../components/ui/form/index")['FormFieldArray']
-    'Button': typeof import("../components/ui/button/index")['Button']
-    'Input': typeof import("../components/ui/input/index")['Input']
-    'Label': typeof import("../components/ui/label/index")['Label']
     'LucideAArrowDown': typeof import("../node_modules/lucide-vue-next")['AArrowDown']
     'LucideAArrowUp': typeof import("../node_modules/lucide-vue-next")['AArrowUp']
     'LucideALargeSmall': typeof import("../node_modules/lucide-vue-next")['ALargeSmall']
@@ -1809,6 +1810,7 @@ interface _GlobalComponents {
     'NuxtIsland': typeof import("../node_modules/nuxt/dist/app/components/nuxt-island")['default']
     'NuxtRouteAnnouncer': IslandComponent<typeof import("../node_modules/nuxt/dist/app/components/server-placeholder")['default']>
       'LazyBaseNavigation': LazyComponent<typeof import("../components/BaseNavigation.vue")['default']>
+    'LazyBeerCard': LazyComponent<typeof import("../components/BeerCard.vue")['default']>
     'LazyLoginForm': LazyComponent<typeof import("../components/LoginForm.vue")['default']>
     'LazyLoginNavigation': LazyComponent<typeof import("../components/LoginNavigation.vue")['default']>
     'LazyMostPopular': LazyComponent<typeof import("../components/MostPopular.vue")['default']>
@@ -1825,6 +1827,9 @@ interface _GlobalComponents {
     'LazyNuxtRouteAnnouncer': LazyComponent<typeof import("../node_modules/nuxt/dist/app/components/nuxt-route-announcer")['default']>
     'LazyNuxtImg': LazyComponent<typeof import("../node_modules/@nuxt/image/dist/runtime/components/NuxtImg.vue")['default']>
     'LazyNuxtPicture': LazyComponent<typeof import("../node_modules/@nuxt/image/dist/runtime/components/NuxtPicture.vue")['default']>
+    'LazyLabel': LazyComponent<typeof import("../components/ui/label/index")['Label']>
+    'LazyButton': LazyComponent<typeof import("../components/ui/button/index")['Button']>
+    'LazyInput': LazyComponent<typeof import("../components/ui/input/index")['Input']>
     'LazyFormControl': LazyComponent<typeof import("../components/ui/form/index")['FormControl']>
     'LazyFormDescription': LazyComponent<typeof import("../components/ui/form/index")['FormDescription']>
     'LazyFormItem': LazyComponent<typeof import("../components/ui/form/index")['FormItem']>
@@ -1834,9 +1839,6 @@ interface _GlobalComponents {
     'LazyForm': LazyComponent<typeof import("../components/ui/form/index")['Form']>
     'LazyFormField': LazyComponent<typeof import("../components/ui/form/index")['FormField']>
     'LazyFormFieldArray': LazyComponent<typeof import("../components/ui/form/index")['FormFieldArray']>
-    'LazyButton': LazyComponent<typeof import("../components/ui/button/index")['Button']>
-    'LazyInput': LazyComponent<typeof import("../components/ui/input/index")['Input']>
-    'LazyLabel': LazyComponent<typeof import("../components/ui/label/index")['Label']>
     'LazyLucideAArrowDown': LazyComponent<typeof import("../node_modules/lucide-vue-next")['AArrowDown']>
     'LazyLucideAArrowUp': LazyComponent<typeof import("../node_modules/lucide-vue-next")['AArrowUp']>
     'LazyLucideALargeSmall': LazyComponent<typeof import("../node_modules/lucide-vue-next")['ALargeSmall']>
@@ -3611,6 +3613,7 @@ declare module 'vue' {
 }
 
 export const BaseNavigation: typeof import("../components/BaseNavigation.vue")['default']
+export const BeerCard: typeof import("../components/BeerCard.vue")['default']
 export const LoginForm: typeof import("../components/LoginForm.vue")['default']
 export const LoginNavigation: typeof import("../components/LoginNavigation.vue")['default']
 export const MostPopular: typeof import("../components/MostPopular.vue")['default']
@@ -3627,6 +3630,9 @@ export const NuxtLoadingIndicator: typeof import("../node_modules/nuxt/dist/app/
 export const NuxtRouteAnnouncer: typeof import("../node_modules/nuxt/dist/app/components/nuxt-route-announcer")['default']
 export const NuxtImg: typeof import("../node_modules/@nuxt/image/dist/runtime/components/NuxtImg.vue")['default']
 export const NuxtPicture: typeof import("../node_modules/@nuxt/image/dist/runtime/components/NuxtPicture.vue")['default']
+export const Label: typeof import("../components/ui/label/index")['Label']
+export const Button: typeof import("../components/ui/button/index")['Button']
+export const Input: typeof import("../components/ui/input/index")['Input']
 export const FormControl: typeof import("../components/ui/form/index")['FormControl']
 export const FormDescription: typeof import("../components/ui/form/index")['FormDescription']
 export const FormItem: typeof import("../components/ui/form/index")['FormItem']
@@ -3636,9 +3642,6 @@ export const FORMITEMINJECTIONKEY: typeof import("../components/ui/form/index")[
 export const Form: typeof import("../components/ui/form/index")['Form']
 export const FormField: typeof import("../components/ui/form/index")['FormField']
 export const FormFieldArray: typeof import("../components/ui/form/index")['FormFieldArray']
-export const Button: typeof import("../components/ui/button/index")['Button']
-export const Input: typeof import("../components/ui/input/index")['Input']
-export const Label: typeof import("../components/ui/label/index")['Label']
 export const LucideAArrowDown: typeof import("../node_modules/lucide-vue-next")['AArrowDown']
 export const LucideAArrowUp: typeof import("../node_modules/lucide-vue-next")['AArrowUp']
 export const LucideALargeSmall: typeof import("../node_modules/lucide-vue-next")['ALargeSmall']
@@ -5407,6 +5410,7 @@ export const Body: typeof import("../node_modules/nuxt/dist/head/runtime/compone
 export const NuxtIsland: typeof import("../node_modules/nuxt/dist/app/components/nuxt-island")['default']
 export const NuxtRouteAnnouncer: IslandComponent<typeof import("../node_modules/nuxt/dist/app/components/server-placeholder")['default']>
 export const LazyBaseNavigation: LazyComponent<typeof import("../components/BaseNavigation.vue")['default']>
+export const LazyBeerCard: LazyComponent<typeof import("../components/BeerCard.vue")['default']>
 export const LazyLoginForm: LazyComponent<typeof import("../components/LoginForm.vue")['default']>
 export const LazyLoginNavigation: LazyComponent<typeof import("../components/LoginNavigation.vue")['default']>
 export const LazyMostPopular: LazyComponent<typeof import("../components/MostPopular.vue")['default']>
@@ -5423,6 +5427,9 @@ export const LazyNuxtLoadingIndicator: LazyComponent<typeof import("../node_modu
 export const LazyNuxtRouteAnnouncer: LazyComponent<typeof import("../node_modules/nuxt/dist/app/components/nuxt-route-announcer")['default']>
 export const LazyNuxtImg: LazyComponent<typeof import("../node_modules/@nuxt/image/dist/runtime/components/NuxtImg.vue")['default']>
 export const LazyNuxtPicture: LazyComponent<typeof import("../node_modules/@nuxt/image/dist/runtime/components/NuxtPicture.vue")['default']>
+export const LazyLabel: LazyComponent<typeof import("../components/ui/label/index")['Label']>
+export const LazyButton: LazyComponent<typeof import("../components/ui/button/index")['Button']>
+export const LazyInput: LazyComponent<typeof import("../components/ui/input/index")['Input']>
 export const LazyFormControl: LazyComponent<typeof import("../components/ui/form/index")['FormControl']>
 export const LazyFormDescription: LazyComponent<typeof import("../components/ui/form/index")['FormDescription']>
 export const LazyFormItem: LazyComponent<typeof import("../components/ui/form/index")['FormItem']>
@@ -5432,9 +5439,6 @@ export const LazyFORMITEMINJECTIONKEY: LazyComponent<typeof import("../component
 export const LazyForm: LazyComponent<typeof import("../components/ui/form/index")['Form']>
 export const LazyFormField: LazyComponent<typeof import("../components/ui/form/index")['FormField']>
 export const LazyFormFieldArray: LazyComponent<typeof import("../components/ui/form/index")['FormFieldArray']>
-export const LazyButton: LazyComponent<typeof import("../components/ui/button/index")['Button']>
-export const LazyInput: LazyComponent<typeof import("../components/ui/input/index")['Input']>
-export const LazyLabel: LazyComponent<typeof import("../components/ui/label/index")['Label']>
 export const LazyLucideAArrowDown: LazyComponent<typeof import("../node_modules/lucide-vue-next")['AArrowDown']>
 export const LazyLucideAArrowUp: LazyComponent<typeof import("../node_modules/lucide-vue-next")['AArrowUp']>
 export const LazyLucideALargeSmall: LazyComponent<typeof import("../node_modules/lucide-vue-next")['ALargeSmall']>

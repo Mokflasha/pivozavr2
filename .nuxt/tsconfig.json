@@ -48,7 +48,7 @@
         "../node_modules/vite/client"
       ],
       "@/lib/utils": [
-        "./shadcn-nuxt/utils"
+        "./shadcn-nuxt/utils.ts"
       ],
       "~": [
         ".."
